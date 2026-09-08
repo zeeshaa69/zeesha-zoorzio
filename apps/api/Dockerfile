@@ -8,6 +8,9 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 
+# Install build tools required by native postinstall scripts (e.g. redis-memory-server)
+RUN apk add --no-cache python3 make g++
+
 # Copy workspace manifests first for better layer caching
 COPY package.json package-lock.json* ./
 COPY apps/api/package.json ./apps/api/
