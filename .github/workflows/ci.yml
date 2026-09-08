@@ -167,7 +167,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Build and push API
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./apps/api/Dockerfile
@@ -175,7 +175,7 @@ jobs:
           tags: anchor/api:${{ github.sha }},anchor/api:latest
 
       - name: Build and push Web
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: .
           file: ./apps/web/Dockerfile
@@ -183,7 +183,7 @@ jobs:
           tags: anchor/web:${{ github.sha }},anchor/web:latest
 
       - name: Build and push AI
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ./apps/ai
           push: true
